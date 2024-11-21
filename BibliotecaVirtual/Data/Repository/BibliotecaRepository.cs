@@ -10,7 +10,6 @@ namespace BibliotecaVirtual.Data.Repository
 {
     public class BibliotecaRepository
     {
-        string conex = @"Server=DESKTOP-UH1HBMK\SQLEXPRESS;Database=ClaudBook;User Id=sa;Password=jvictor10;TrustServerCertificate=True;";
         private readonly User _user;
         private readonly AppDbContext _context;
 

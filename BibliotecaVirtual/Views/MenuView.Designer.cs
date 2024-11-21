@@ -132,6 +132,7 @@
             this.listViewBiblioteca.TabIndex = 4;
             this.listViewBiblioteca.UseCompatibleStateImageBehavior = false;
             this.listViewBiblioteca.View = System.Windows.Forms.View.Details;
+            this.listViewBiblioteca.DoubleClick += new System.EventHandler(this.listViewBiblioteca_DoubleClick);
             // 
             // Id
             // 

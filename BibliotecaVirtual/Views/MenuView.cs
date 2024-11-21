@@ -107,5 +107,26 @@ namespace BibliotecaVirtual.Views
                 listViewBiblioteca.Items.Add(item);
             }
         }
+
+        private void listViewBiblioteca_DoubleClick(object sender, EventArgs e)
+        {
+            if (listViewBiblioteca.SelectedItems.Count > 0)
+            {
+                var selectedItem = listViewBiblioteca.SelectedItems[0];
+                var biblioteca = selectedItem.Tag as Biblioteca;
+
+                if (biblioteca != null)
+                {
+                    // Abrir a nova página MenuBiblioteca
+                    MenuBiblioteca menuBiblioteca = new MenuBiblioteca(_user, biblioteca);
+                    this.Hide();
+                    menuBiblioteca.ShowDialog();
+                    this.Show();
+
+                    // Atualizar a lista após fechar a página
+                    PreencherGrid();
+                }
+            }
+        }
     }
 }
