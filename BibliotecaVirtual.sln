@@ -5,11 +5,13 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaVirtual", "BibliotecaVirtual\BibliotecaVirtual.csproj", "{ECEE6EAF-C8B6-4255-AC9F-26E54087254B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaVirtual.DataBase.RunTime", "BibliotecaVirtual.DataBase.RunTime\BibliotecaVirtual.DataBase.RunTime.csproj", "{C6B3D4C7-1082-4EC8-804A-702D0AFC665C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaVirtual.DataBase.RunTime", "BibliotecaVirtual.DataBase.RunTime\BibliotecaVirtual.DataBase.RunTime.csproj", "{C6B3D4C7-1082-4EC8-804A-702D0AFC665C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaVirtual.DataBase", "BibliotecaVirtual.DataBase\BibliotecaVirtual.DataBase.csproj", "{E1CC400F-446E-46CD-B6FF-B9A670F761C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaVirtual.DataBase", "BibliotecaVirtual.DataBase\BibliotecaVirtual.DataBase.csproj", "{E1CC400F-446E-46CD-B6FF-B9A670F761C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaVirtual.Models", "BibliotecaVirtual.Models\BibliotecaVirtual.Models.csproj", "{60DF6817-DD0B-446E-A075-AC7FF9152ACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaVirtual.Models", "BibliotecaVirtual.Models\BibliotecaVirtual.Models.csproj", "{60DF6817-DD0B-446E-A075-AC7FF9152ACA}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{641EC09F-24F9-492B-B723-6E0DA6B32913}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,8 @@ Global
 		{60DF6817-DD0B-446E-A075-AC7FF9152ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60DF6817-DD0B-446E-A075-AC7FF9152ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60DF6817-DD0B-446E-A075-AC7FF9152ACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{641EC09F-24F9-492B-B723-6E0DA6B32913}.Debug|Any CPU.ActiveCfg = Debug
+		{641EC09F-24F9-492B-B723-6E0DA6B32913}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
