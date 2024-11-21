@@ -34,9 +34,9 @@ namespace BibliotecaVirtual.Views
 
         private void PreencherGrid()
         {
-           
 
-          
+
+
             listViewBiblioteca.Items.Clear();
 
             var bibliotecas = _repository.GetAllBibliotecas().Where(b => b.UserId == _user.Id).ToList();
@@ -65,6 +65,7 @@ namespace BibliotecaVirtual.Views
             this.Hide();
             CadastroUser tela = new CadastroUser(_user);
             tela.ShowDialog();
+            this.Show();
         }
 
         private void btnAddBiblioteca_Click(object sender, EventArgs e)
@@ -72,6 +73,39 @@ namespace BibliotecaVirtual.Views
             this.Hide();
             CadastroBiblioteca tela = new CadastroBiblioteca(_user);
             tela.ShowDialog();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPesquisa.Text))
+            {
+                MessageBox.Show("Você não pesquisou nenhuma Biblioteca", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            int tipoPesquisa = cmbBiblioteca.SelectedIndex;
+            List<Biblioteca> lista = _repository.Pesquisar(tipoPesquisa,txtPesquisa.Text.Trim());
+            PreencherGrid(lista);
+
+        }
+
+        private void PreencherGrid(List<Biblioteca> bibliotecas)
+        {
+            listViewBiblioteca.Items.Clear();
+
+            if (!bibliotecas.Any())
+            {
+                txtLimpo.Visible = true;
+            }
+
+            txtLimpo.Visible = false;
+            foreach (var biblioteca in bibliotecas)
+            {
+                var item = new ListViewItem();
+                item.Tag = biblioteca;
+                item.Text = biblioteca.Id.ToString();
+                item.SubItems.Add(biblioteca.Nome);
+                item.SubItems.Add(biblioteca.Descricao);
+                listViewBiblioteca.Items.Add(item);
+            }
         }
     }
 }

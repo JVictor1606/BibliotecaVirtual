@@ -1,6 +1,7 @@
 ﻿using BibliotecaVirtual.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace BibliotecaVirtual.Data.Repository
 {
     public class BibliotecaRepository
     {
+        string conex = @"Server=DESKTOP-UH1HBMK\SQLEXPRESS;Database=ClaudBook;User Id=sa;Password=jvictor10;TrustServerCertificate=True;";
         private readonly User _user;
         private readonly AppDbContext _context;
 
@@ -113,6 +115,25 @@ namespace BibliotecaVirtual.Data.Repository
             catch (Exception e)
             {
                 throw new Exception($"Erro ao buscar a Biblioteca: {e.Message}", e);
+            }
+        }
+
+        public List<Biblioteca> Pesquisar(int tipoPesquisa, string textoPesquisa)
+        {
+            using (var context = new AppDbContext())
+            {
+                IQueryable<Biblioteca> query = context.Bibliotecas;
+
+                if (tipoPesquisa == 0)
+                {
+                    query = query.Where(b => Convert.ToString(b.Id).Contains(textoPesquisa));
+                }
+                if (tipoPesquisa == 1)
+                {
+                    query = query.Where(b => b.Nome.Contains(textoPesquisa));
+                }
+
+                return query.ToList();
             }
         }
     }

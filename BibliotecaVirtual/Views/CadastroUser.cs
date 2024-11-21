@@ -61,6 +61,8 @@ namespace BibliotecaVirtual.Views
                 txtTitulo.Text = "Atualize o seu perfil";
 
                 txtConfirSenha.Visible = false;
+                txtWarningConfirm.Visible = false;
+                lblConfirmarSenha.Visible = false;
 
                 txtNome.Text = user.Name;
                 txtEmail.Text = user.Email;
@@ -92,17 +94,25 @@ namespace BibliotecaVirtual.Views
                         if (_user.Id < 1)
                         {
                             _repository.Create(user);
+                            MessageBox.Show($"Obrigado, {user.Name} foi registrado(a) com sucesso", "Registro Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                            Form1 tela = new Form1();
+                            tela.Show();
+
                         }
                         else
                         {
                             user.Id = _user.Id;
                             _repository.Update(user);
-                        }
-                        MessageBox.Show($"Obrigado, {user.Name} foi registrado(a) com sucesso", "Registro Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        this.Close();
-                        Form1 tela = new Form1();
-                        tela.ShowDialog();
+                            MessageBox.Show($"Obrigado, {user.Name} foi Atualizado com sucesso", "Atualização Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                            MenuView tela = new MenuView(user);
+                            tela.Show();
+
+                        }
+
+                        
                     }
                 }
 
@@ -149,17 +159,21 @@ namespace BibliotecaVirtual.Views
                 txtWarningSenha.Text = ("Informe a senha do Usuario");
                 isValid = false;
             }
-            if (string.IsNullOrEmpty(txtConfirSenha.Text))
+
+            if (_user.Id == 0) 
             {
-                txtWarningConfirm.Visible = true;
-                txtWarningConfirm.Text = ("Confirme a senha do Usuario");
-                isValid = false;
-            }
-            if (txtConfirSenha.Text != txtSenha.Text)
-            {
-                txtWarningConfirm.Visible = true;
-                txtWarningConfirm.Text = ("As senhas não coincidem");
-                isValid = false;
+                if (string.IsNullOrEmpty(txtConfirSenha.Text))
+                {
+                    txtWarningConfirm.Visible = true;
+                    txtWarningConfirm.Text = ("Confirme a senha do Usuario");
+                    isValid = false;
+                }
+                if (txtConfirSenha.Text != txtSenha.Text)
+                {
+                    txtWarningConfirm.Visible = true;
+                    txtWarningConfirm.Text = ("As senhas não coincidem");
+                    isValid = false;
+                }
             }
 
             return isValid;
@@ -168,8 +182,6 @@ namespace BibliotecaVirtual.Views
         private void CadastroUser_FormClosed(object sender, FormClosedEventArgs e)
         {
 
-            Form1 tela = new Form1();
-            tela.Show();
         }
     }
 }

@@ -25,12 +25,14 @@ namespace BibliotecaVirtual
         {
             InitializeComponent();
             _repository = new UserRepository(new AppDbContext());
+            this.imgVerSenha.Click += new System.EventHandler(this.imgVerSenha_Click);
+            this.imgEsconderSenha.Click += new System.EventHandler(this.imgEsconderSenha_Click);
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            txtSenha.UseSystemPasswordChar = true;
         }
 
         private void txtCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -73,10 +75,10 @@ namespace BibliotecaVirtual
                 if (user != null)
                 {
                     
-                    MenuView tela = new MenuView(user);
-               
-                    tela.Show();
                     this.Hide();
+                    MenuView tela = new MenuView(user);
+                    tela.Show();
+
 
                 }
             }
@@ -84,6 +86,20 @@ namespace BibliotecaVirtual
             {
                 txtWarningForm.Visible = true;
             }
+        }
+
+        private void imgVerSenha_Click(object sender, EventArgs e)
+        {
+            txtSenha.UseSystemPasswordChar = false;
+            imgVerSenha.Visible = false;
+            imgEsconderSenha.Visible = true;
+        }
+
+        private void imgEsconderSenha_Click(object sender, EventArgs e)
+        {
+            txtSenha.UseSystemPasswordChar = true;
+            imgEsconderSenha.Visible = false;
+            imgVerSenha.Visible = true;
         }
     }
 }

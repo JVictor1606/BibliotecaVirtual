@@ -140,7 +140,7 @@
             // txtTelefone
             // 
             this.txtTelefone.Location = new System.Drawing.Point(450, 157);
-            this.txtTelefone.Mask = "(99) 0000-0000";
+            this.txtTelefone.Mask = "(99) 00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(260, 20);
             this.txtTelefone.TabIndex = 22;
@@ -177,7 +177,9 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CadastroBiblioteca";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastroBiblioteca";
             this.Load += new System.EventHandler(this.CadastroBiblioteca_Load);
             this.ResumeLayout(false);

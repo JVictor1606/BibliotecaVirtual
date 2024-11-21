@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuView));
             this.txtUserNome = new System.Windows.Forms.Label();
             this.btnAddBiblioteca = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -38,13 +39,18 @@
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Descrição = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.cmbBiblioteca = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUserNome
             // 
+            this.txtUserNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserNome.AutoSize = true;
-            this.txtUserNome.Location = new System.Drawing.Point(914, 24);
+            this.txtUserNome.Location = new System.Drawing.Point(1221, 24);
             this.txtUserNome.Name = "txtUserNome";
             this.txtUserNome.Size = new System.Drawing.Size(35, 13);
             this.txtUserNome.TabIndex = 0;
@@ -52,7 +58,7 @@
             // 
             // btnAddBiblioteca
             // 
-            this.btnAddBiblioteca.Location = new System.Drawing.Point(18, 110);
+            this.btnAddBiblioteca.Location = new System.Drawing.Point(18, 148);
             this.btnAddBiblioteca.Name = "btnAddBiblioteca";
             this.btnAddBiblioteca.Size = new System.Drawing.Size(75, 23);
             this.btnAddBiblioteca.TabIndex = 1;
@@ -62,12 +68,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.btnEditarPerfil);
             this.groupBox1.Controls.Add(this.txtUserNome);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(957, 59);
+            this.groupBox1.Size = new System.Drawing.Size(1264, 59);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Perfil";
@@ -93,8 +101,9 @@
             // 
             // txtLimpo
             // 
+            this.txtLimpo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtLimpo.AutoSize = true;
-            this.txtLimpo.Location = new System.Drawing.Point(408, 120);
+            this.txtLimpo.Location = new System.Drawing.Point(551, 161);
             this.txtLimpo.Name = "txtLimpo";
             this.txtLimpo.Size = new System.Drawing.Size(150, 13);
             this.txtLimpo.TabIndex = 5;
@@ -116,10 +125,10 @@
             this.Descrição});
             this.listViewBiblioteca.FullRowSelect = true;
             this.listViewBiblioteca.HideSelection = false;
-            this.listViewBiblioteca.Location = new System.Drawing.Point(18, 139);
+            this.listViewBiblioteca.Location = new System.Drawing.Point(12, 177);
             this.listViewBiblioteca.MultiSelect = false;
             this.listViewBiblioteca.Name = "listViewBiblioteca";
-            this.listViewBiblioteca.Size = new System.Drawing.Size(943, 402);
+            this.listViewBiblioteca.Size = new System.Drawing.Size(1250, 575);
             this.listViewBiblioteca.TabIndex = 4;
             this.listViewBiblioteca.UseCompatibleStateImageBehavior = false;
             this.listViewBiblioteca.View = System.Windows.Forms.View.Details;
@@ -139,17 +148,69 @@
             this.Descrição.Text = "Descrição";
             this.Descrição.Width = 250;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(524, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(197, 39);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Bibliotecas";
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Location = new System.Drawing.Point(913, 151);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(267, 20);
+            this.txtPesquisa.TabIndex = 7;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnPesquisar.AutoSize = true;
+            this.btnPesquisar.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.Location = new System.Drawing.Point(1186, 148);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(76, 24);
+            this.btnPesquisar.TabIndex = 14;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // cmbBiblioteca
+            // 
+            this.cmbBiblioteca.AllowDrop = true;
+            this.cmbBiblioteca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBiblioteca.Items.AddRange(new object[] {
+            "Id",
+            "Nome"});
+            this.cmbBiblioteca.Location = new System.Drawing.Point(786, 150);
+            this.cmbBiblioteca.Name = "cmbBiblioteca";
+            this.cmbBiblioteca.Size = new System.Drawing.Size(121, 21);
+            this.cmbBiblioteca.TabIndex = 15;
+            // 
             // MenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(189)))), ((int)(((byte)(142)))));
-            this.ClientSize = new System.Drawing.Size(973, 591);
+            this.ClientSize = new System.Drawing.Size(1280, 764);
+            this.Controls.Add(this.cmbBiblioteca);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.txtPesquisa);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLimpo);
             this.Controls.Add(this.listViewBiblioteca);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAddBiblioteca);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuView";
             this.Load += new System.EventHandler(this.MenuView_Load);
             this.groupBox1.ResumeLayout(false);
@@ -171,5 +232,9 @@
         private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader Descrição;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPesquisa;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.ComboBox cmbBiblioteca;
     }
 }

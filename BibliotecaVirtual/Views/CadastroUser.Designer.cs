@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroUser));
             this.txtTitulo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -46,7 +47,6 @@
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTitulo.AutoSize = true;
             this.txtTitulo.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulo.Location = new System.Drawing.Point(6, 39);
@@ -96,6 +96,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(424, 161);
             this.label4.Name = "label4";
@@ -120,7 +121,6 @@
             // 
             // txtWarningNome
             // 
-            this.txtWarningNome.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtWarningNome.AutoSize = true;
             this.txtWarningNome.ForeColor = System.Drawing.Color.Red;
             this.txtWarningNome.Location = new System.Drawing.Point(52, 212);
@@ -132,7 +132,6 @@
             // 
             // txtWarningSenha
             // 
-            this.txtWarningSenha.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtWarningSenha.AutoSize = true;
             this.txtWarningSenha.ForeColor = System.Drawing.Color.Red;
             this.txtWarningSenha.Location = new System.Drawing.Point(52, 290);
@@ -144,7 +143,7 @@
             // 
             // txtWarningEmail
             // 
-            this.txtWarningEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtWarningEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtWarningEmail.AutoSize = true;
             this.txtWarningEmail.ForeColor = System.Drawing.Color.Red;
             this.txtWarningEmail.Location = new System.Drawing.Point(424, 212);
@@ -156,6 +155,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(427, 180);
@@ -166,7 +166,7 @@
             // 
             // txtWarningConfirm
             // 
-            this.txtWarningConfirm.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtWarningConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtWarningConfirm.AutoSize = true;
             this.txtWarningConfirm.ForeColor = System.Drawing.Color.Red;
             this.txtWarningConfirm.Location = new System.Drawing.Point(424, 290);
@@ -178,6 +178,7 @@
             // 
             // txtConfirSenha
             // 
+            this.txtConfirSenha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtConfirSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtConfirSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirSenha.Location = new System.Drawing.Point(427, 258);
@@ -188,6 +189,7 @@
             // 
             // lblConfirmarSenha
             // 
+            this.lblConfirmarSenha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblConfirmarSenha.AutoSize = true;
             this.lblConfirmarSenha.Location = new System.Drawing.Point(424, 239);
             this.lblConfirmarSenha.Name = "lblConfirmarSenha";
@@ -215,6 +217,8 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CadastroUser";
             this.Text = "CadastroUser";
             this.Load += new System.EventHandler(this.CadastroUser_Load);

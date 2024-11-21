@@ -143,12 +143,13 @@
             this.imgVerSenha.BackColor = System.Drawing.Color.White;
             this.imgVerSenha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.imgVerSenha.Image = ((System.Drawing.Image)(resources.GetObject("imgVerSenha.Image")));
-            this.imgVerSenha.Location = new System.Drawing.Point(596, 358);
+            this.imgVerSenha.Location = new System.Drawing.Point(610, 362);
             this.imgVerSenha.Name = "imgVerSenha";
-            this.imgVerSenha.Size = new System.Drawing.Size(25, 26);
+            this.imgVerSenha.Size = new System.Drawing.Size(20, 18);
             this.imgVerSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgVerSenha.TabIndex = 6;
             this.imgVerSenha.TabStop = false;
+            this.imgVerSenha.Click += new System.EventHandler(this.imgVerSenha_Click);
             // 
             // imgEsconderSenha
             // 
@@ -156,13 +157,14 @@
             this.imgEsconderSenha.BackColor = System.Drawing.Color.White;
             this.imgEsconderSenha.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.imgEsconderSenha.Image = ((System.Drawing.Image)(resources.GetObject("imgEsconderSenha.Image")));
-            this.imgEsconderSenha.Location = new System.Drawing.Point(596, 358);
+            this.imgEsconderSenha.Location = new System.Drawing.Point(610, 362);
             this.imgEsconderSenha.Name = "imgEsconderSenha";
-            this.imgEsconderSenha.Size = new System.Drawing.Size(23, 26);
+            this.imgEsconderSenha.Size = new System.Drawing.Size(20, 18);
             this.imgEsconderSenha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgEsconderSenha.TabIndex = 7;
             this.imgEsconderSenha.TabStop = false;
             this.imgEsconderSenha.Visible = false;
+            this.imgEsconderSenha.Click += new System.EventHandler(this.imgEsconderSenha_Click);
             // 
             // Form1
             // 
