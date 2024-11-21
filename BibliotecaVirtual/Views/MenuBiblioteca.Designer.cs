@@ -37,14 +37,14 @@
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Titulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Autor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Disponibilidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtLimpo = new System.Windows.Forms.Label();
             this.cmbItem = new System.Windows.Forms.ComboBox();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
-            this.Data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Disponibilidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Tipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -144,6 +144,20 @@
             this.Autor.Text = "Autor";
             this.Autor.Width = 150;
             // 
+            // Data
+            // 
+            this.Data.Text = "Data";
+            this.Data.Width = 122;
+            // 
+            // Disponibilidade
+            // 
+            this.Disponibilidade.Text = "Disponibilidade";
+            this.Disponibilidade.Width = 129;
+            // 
+            // Tipo
+            // 
+            this.Tipo.Text = "Tipo";
+            // 
             // txtLimpo
             // 
             this.txtLimpo.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -161,30 +175,27 @@
             this.cmbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItem.Items.AddRange(new object[] {
             "Id",
-            "Nome",
-            "LIvro",
-            "Revista",
-            "Artigo"});
-            this.cmbItem.Location = new System.Drawing.Point(834, 227);
+            "Nome"});
+            this.cmbItem.Location = new System.Drawing.Point(872, 227);
             this.cmbItem.Name = "cmbItem";
             this.cmbItem.Size = new System.Drawing.Size(121, 21);
             this.cmbItem.TabIndex = 16;
             // 
             // txtPesquisa
             // 
-            this.txtPesquisa.Location = new System.Drawing.Point(961, 228);
+            this.txtPesquisa.Location = new System.Drawing.Point(999, 228);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(267, 20);
             this.txtPesquisa.TabIndex = 17;
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPesquisar.AutoSize = true;
             this.btnPesquisar.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(1234, 227);
+            this.btnPesquisar.Location = new System.Drawing.Point(1272, 224);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(76, 24);
             this.btnPesquisar.TabIndex = 18;
@@ -199,20 +210,7 @@
             this.btnAddItem.TabIndex = 19;
             this.btnAddItem.Text = "Adicionar";
             this.btnAddItem.UseVisualStyleBackColor = true;
-            // 
-            // Data
-            // 
-            this.Data.Text = "Data";
-            this.Data.Width = 122;
-            // 
-            // Disponibilidade
-            // 
-            this.Disponibilidade.Text = "Disponibilidade";
-            this.Disponibilidade.Width = 129;
-            // 
-            // Tipo
-            // 
-            this.Tipo.Text = "Tipo";
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
             // MenuBiblioteca
             // 
@@ -230,6 +228,7 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MenuBiblioteca";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bibliotecas";
             this.Load += new System.EventHandler(this.MenuBiblioteca_Load);
             this.groupBox1.ResumeLayout(false);

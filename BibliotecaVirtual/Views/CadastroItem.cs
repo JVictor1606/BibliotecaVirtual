@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaVirtual.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace BibliotecaVirtual.Views
 {
     public partial class CadastroItem : Form
     {
-        public CadastroItem()
+        private readonly Biblioteca _biblioteca;
+        public CadastroItem(Biblioteca biblioteca)
         {
             InitializeComponent();
+            _biblioteca = biblioteca;
         }
 
         private void cmbItem_SelectedIndexChanged(object sender, EventArgs e)

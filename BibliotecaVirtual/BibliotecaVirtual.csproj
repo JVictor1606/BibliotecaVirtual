@@ -13,6 +13,9 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,11 +28,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -209,6 +209,7 @@
     <Compile Include="Data\AppDbContext.cs" />
     <Compile Include="Data\RepositoryBase.cs" />
     <Compile Include="Data\Repository\BibliotecaRepository.cs" />
+    <Compile Include="Data\Repository\ItemRepository.cs" />
     <Compile Include="Data\Repository\UserRepository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -242,6 +243,12 @@
     <Compile Include="Views\CadastroUser.Designer.cs">
       <DependentUpon>CadastroUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MenuBiblioteca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MenuBiblioteca.Designer.cs">
+      <DependentUpon>MenuBiblioteca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MenuView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,8 +270,14 @@
     <EmbeddedResource Include="Views\CadastroBiblioteca.resx">
       <DependentUpon>CadastroBiblioteca.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\CadastroItem.resx">
+      <DependentUpon>CadastroItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CadastroUser.resx">
       <DependentUpon>CadastroUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MenuBiblioteca.resx">
+      <DependentUpon>MenuBiblioteca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuView.resx">
       <DependentUpon>MenuView.cs</DependentUpon>

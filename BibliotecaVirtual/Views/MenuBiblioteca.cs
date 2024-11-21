@@ -23,7 +23,7 @@ namespace BibliotecaVirtual.Views
             InitializeComponent();
             _biblioteca = biblioteca;
             _user = user;
-            _repository = new ItemRepository(new AppDbContext);
+            _repository = new ItemRepository(new AppDbContext());
             
         }
         public MenuBiblioteca()
@@ -38,7 +38,15 @@ namespace BibliotecaVirtual.Views
 
         private void MenuBiblioteca_Load(object sender, EventArgs e)
         {
+            txtBibliotecaId.Text = Convert.ToString(_biblioteca.Id);
+            txtBibliotecaNome.Text = _biblioteca.Nome;
+        }
 
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CadastroItem tela = new CadastroItem(_biblioteca);
+            tela.ShowDialog();
         }
     }
 }
