@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "BibliotecaVirtual.DataBase.RunTime": {
+      "commandName": "Project",
+      "sqlDebugging": true
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    }
+  }
+}
