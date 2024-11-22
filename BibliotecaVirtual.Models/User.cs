@@ -16,6 +16,8 @@ namespace BibliotecaVirtual.Models
         [NotMapped]
         public string ConfirmPassword { get; set; }
 
-        public List<Biblioteca> bibliotecas { get; set; } = new List<Biblioteca>();
+        public List<Biblioteca> Bibliotecas { get; set; } = new List<Biblioteca>();
+
+        public List<Emprestimo> Emprestimos { get; set; }
     }
 }

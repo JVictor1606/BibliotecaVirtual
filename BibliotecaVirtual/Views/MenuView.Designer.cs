@@ -166,6 +166,7 @@
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(267, 20);
             this.txtPesquisa.TabIndex = 7;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // btnPesquisar
             // 
@@ -213,6 +214,7 @@
             this.Name = "MenuView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuView_FormClosing);
             this.Load += new System.EventHandler(this.MenuView_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

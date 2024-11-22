@@ -175,7 +175,10 @@
             this.cmbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbItem.Items.AddRange(new object[] {
             "Id",
-            "Nome"});
+            "Titulo",
+            "Livro",
+            "Revista",
+            "Artigo"});
             this.cmbItem.Location = new System.Drawing.Point(872, 227);
             this.cmbItem.Name = "cmbItem";
             this.cmbItem.Size = new System.Drawing.Size(121, 21);
@@ -187,6 +190,7 @@
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(267, 20);
             this.txtPesquisa.TabIndex = 17;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // btnPesquisar
             // 
@@ -201,6 +205,7 @@
             this.btnPesquisar.TabIndex = 18;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnAddItem
             // 
@@ -230,6 +235,7 @@
             this.Name = "MenuBiblioteca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bibliotecas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuBiblioteca_FormClosing);
             this.Load += new System.EventHandler(this.MenuBiblioteca_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

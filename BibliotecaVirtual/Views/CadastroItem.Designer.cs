@@ -47,7 +47,7 @@
             this.txtEditora = new System.Windows.Forms.TextBox();
             this.txtPeriodicidade = new System.Windows.Forms.TextBox();
             this.lblPeriodicidade = new System.Windows.Forms.Label();
-            this.btnCriarBiblio = new System.Windows.Forms.Button();
+            this.btnCriarItem = new System.Windows.Forms.Button();
             this.lblEdicao = new System.Windows.Forms.Label();
             this.txtEdicao = new System.Windows.Forms.TextBox();
             this.txtVolume = new System.Windows.Forms.TextBox();
@@ -99,10 +99,6 @@
             // 
             this.cmbItem.AllowDrop = true;
             this.cmbItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbItem.Items.AddRange(new object[] {
-            "Revista",
-            "Livro",
-            "Artigo"});
             this.cmbItem.Location = new System.Drawing.Point(15, 143);
             this.cmbItem.Name = "cmbItem";
             this.cmbItem.Size = new System.Drawing.Size(121, 21);
@@ -136,6 +132,7 @@
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.Size = new System.Drawing.Size(260, 26);
             this.txtISBN.TabIndex = 22;
+            this.txtISBN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtISBN_KeyPress);
             // 
             // txtGenero
             // 
@@ -149,6 +146,7 @@
             // 
             // txtData
             // 
+            this.txtData.BackColor = System.Drawing.Color.White;
             this.txtData.Location = new System.Drawing.Point(647, 209);
             this.txtData.Mask = "00/00/0000";
             this.txtData.Name = "txtData";
@@ -179,18 +177,18 @@
             this.lblISBN.AutoSize = true;
             this.lblISBN.Location = new System.Drawing.Point(322, 306);
             this.lblISBN.Name = "lblISBN";
-            this.lblISBN.Size = new System.Drawing.Size(70, 13);
+            this.lblISBN.Size = new System.Drawing.Size(73, 13);
             this.lblISBN.TabIndex = 27;
-            this.lblISBN.Text = "ISBN do Item";
+            this.lblISBN.Text = "ISBN do Livro";
             // 
             // lblGenero
             // 
             this.lblGenero.AutoSize = true;
             this.lblGenero.Location = new System.Drawing.Point(644, 306);
             this.lblGenero.Name = "lblGenero";
-            this.lblGenero.Size = new System.Drawing.Size(80, 13);
+            this.lblGenero.Size = new System.Drawing.Size(83, 13);
             this.lblGenero.TabIndex = 28;
-            this.lblGenero.Text = "Genero do Item";
+            this.lblGenero.Text = "Gênero do Livro";
             // 
             // cmbDisponibilidade
             // 
@@ -209,9 +207,9 @@
             this.lblEditora.AutoSize = true;
             this.lblEditora.Location = new System.Drawing.Point(16, 399);
             this.lblEditora.Name = "lblEditora";
-            this.lblEditora.Size = new System.Drawing.Size(78, 13);
+            this.lblEditora.Size = new System.Drawing.Size(94, 13);
             this.lblEditora.TabIndex = 30;
-            this.lblEditora.Text = "Editora do Item";
+            this.lblEditora.Text = "Editora da Revista";
             // 
             // txtEditora
             // 
@@ -238,32 +236,33 @@
             this.lblPeriodicidade.AutoSize = true;
             this.lblPeriodicidade.Location = new System.Drawing.Point(322, 399);
             this.lblPeriodicidade.Name = "lblPeriodicidade";
-            this.lblPeriodicidade.Size = new System.Drawing.Size(109, 13);
+            this.lblPeriodicidade.Size = new System.Drawing.Size(125, 13);
             this.lblPeriodicidade.TabIndex = 34;
-            this.lblPeriodicidade.Text = "Periodicidade do Item";
+            this.lblPeriodicidade.Text = "Periodicidade da Revista";
             // 
-            // btnCriarBiblio
+            // btnCriarItem
             // 
-            this.btnCriarBiblio.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCriarBiblio.AutoSize = true;
-            this.btnCriarBiblio.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnCriarBiblio.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnCriarBiblio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCriarBiblio.Location = new System.Drawing.Point(559, 644);
-            this.btnCriarBiblio.Name = "btnCriarBiblio";
-            this.btnCriarBiblio.Size = new System.Drawing.Size(114, 37);
-            this.btnCriarBiblio.TabIndex = 35;
-            this.btnCriarBiblio.Text = "Criar";
-            this.btnCriarBiblio.UseVisualStyleBackColor = false;
+            this.btnCriarItem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCriarItem.AutoSize = true;
+            this.btnCriarItem.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.btnCriarItem.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnCriarItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCriarItem.Location = new System.Drawing.Point(559, 644);
+            this.btnCriarItem.Name = "btnCriarItem";
+            this.btnCriarItem.Size = new System.Drawing.Size(114, 37);
+            this.btnCriarItem.TabIndex = 35;
+            this.btnCriarItem.Text = "Criar";
+            this.btnCriarItem.UseVisualStyleBackColor = false;
+            this.btnCriarItem.Click += new System.EventHandler(this.btnCriarBiblio_Click);
             // 
             // lblEdicao
             // 
             this.lblEdicao.AutoSize = true;
             this.lblEdicao.Location = new System.Drawing.Point(644, 399);
             this.lblEdicao.Name = "lblEdicao";
-            this.lblEdicao.Size = new System.Drawing.Size(78, 13);
+            this.lblEdicao.Size = new System.Drawing.Size(94, 13);
             this.lblEdicao.TabIndex = 36;
-            this.lblEdicao.Text = "Edicao do Item";
+            this.lblEdicao.Text = "Edição da Revista";
             // 
             // txtEdicao
             // 
@@ -290,9 +289,9 @@
             this.lblVolume.AutoSize = true;
             this.lblVolume.Location = new System.Drawing.Point(16, 494);
             this.lblVolume.Name = "lblVolume";
-            this.lblVolume.Size = new System.Drawing.Size(80, 13);
+            this.lblVolume.Size = new System.Drawing.Size(96, 13);
             this.lblVolume.TabIndex = 39;
-            this.lblVolume.Text = "Volume do Item";
+            this.lblVolume.Text = "Volume da Revista";
             // 
             // txtDOI
             // 
@@ -309,9 +308,9 @@
             this.lblDOI.AutoSize = true;
             this.lblDOI.Location = new System.Drawing.Point(322, 494);
             this.lblDOI.Name = "lblDOI";
-            this.lblDOI.Size = new System.Drawing.Size(64, 13);
+            this.lblDOI.Size = new System.Drawing.Size(117, 13);
             this.lblDOI.TabIndex = 41;
-            this.lblDOI.Text = "DOI do Item";
+            this.lblDOI.Text = "DOI do Artigo Cientifico";
             // 
             // CadastroItem
             // 
@@ -325,7 +324,7 @@
             this.Controls.Add(this.txtVolume);
             this.Controls.Add(this.txtEdicao);
             this.Controls.Add(this.lblEdicao);
-            this.Controls.Add(this.btnCriarBiblio);
+            this.Controls.Add(this.btnCriarItem);
             this.Controls.Add(this.lblPeriodicidade);
             this.Controls.Add(this.txtPeriodicidade);
             this.Controls.Add(this.txtEditora);
@@ -374,7 +373,7 @@
         private System.Windows.Forms.TextBox txtEditora;
         private System.Windows.Forms.TextBox txtPeriodicidade;
         private System.Windows.Forms.Label lblPeriodicidade;
-        private System.Windows.Forms.Button btnCriarBiblio;
+        private System.Windows.Forms.Button btnCriarItem;
         private System.Windows.Forms.Label lblEdicao;
         private System.Windows.Forms.TextBox txtEdicao;
         private System.Windows.Forms.TextBox txtVolume;

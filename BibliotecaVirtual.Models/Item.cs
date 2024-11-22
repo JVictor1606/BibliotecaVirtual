@@ -11,11 +11,14 @@ namespace BibliotecaVirtual.Models
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }
+        public string Tipo { get; set; }
         public DateTime Data { get; set; }
         public bool Disponivel { get; set; }
 
         public Biblioteca Biblioteca { get; set; }
         public int BibliotecaId { get; set; }
+
+        public List<Emprestimo> Emprestimos { get; set; } = new List<Emprestimo>();
 
     }
 }

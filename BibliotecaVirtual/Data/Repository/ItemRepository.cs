@@ -22,14 +22,16 @@ namespace BibliotecaVirtual.Data.Repository
         {
             try
             {
-                _context.Itens.Add(newItem);
+                _context.Items.Add(newItem);
                 _context.SaveChanges();
                 return newItem;
             }
             catch (Exception e)
             {
+                Console.WriteLine(($"Erro no Banco ao adicionar aos Itens: {e.Message} \n {e.StackTrace}", e));
 
-                throw new Exception($"Erro no Banco ao adicionar aos Itens: {e.Message}", e);
+
+                throw new Exception($"Erro no Banco ao adicionar aos Itens: {e.Message} \n {e.StackTrace}", e);
             }
 
         }
@@ -38,14 +40,14 @@ namespace BibliotecaVirtual.Data.Repository
         {
             try
             {
-                var bi = _context.Itens.Find(id);
+                var bi = _context.Items.Find(id);
 
                 if (bi == null)
                 {
                     throw new ArgumentException("Item não encontrado");
                 }
 
-                _context.Itens.Remove(bi);
+                _context.Items.Remove(bi);
                 _context.SaveChanges();
                 return true;
             }
@@ -59,7 +61,7 @@ namespace BibliotecaVirtual.Data.Repository
         {
             try
             {
-                var existingItem = _context.Itens.FirstOrDefault(x => x.Id == updatedItem.Id);
+                var existingItem = _context.Items.FirstOrDefault(x => x.Id == updatedItem.Id);
                 if (existingItem == null)
                 {
                     throw new ArgumentException("Item não encontrado");
@@ -69,6 +71,40 @@ namespace BibliotecaVirtual.Data.Repository
                 existingItem.Autor = updatedItem.Autor;
                 existingItem.Data = updatedItem.Data;
                 existingItem.Disponivel = updatedItem.Disponivel;
+
+                switch (updatedItem)
+                {
+                    case Livro livro:
+                        var existingLivro = existingItem as Livro;
+                        if (existingLivro != null)
+                        {
+                            existingLivro.ISBN = livro.ISBN;
+                            existingLivro.Genero = livro.Genero;
+                        }
+                        break;
+
+                    case Revista revista:
+                        var existingRevista = existingItem as Revista;
+                        if (existingRevista != null)
+                        {
+                            existingRevista.Edicao = revista.Edicao;
+                            existingRevista.Volume = revista.Volume;
+                            existingRevista.Periodicidade = revista.Periodicidade;
+                            existingRevista.Editora = revista.Editora;
+                        }
+                        break;
+
+                    case ArtigoCientifico artigo:
+                        var existingArtigo = existingItem as ArtigoCientifico;
+                        if (existingArtigo != null)
+                        {
+                            existingArtigo.DOI = artigo.DOI;
+                        }
+                        break;
+
+                    default:
+                        throw new ArgumentException("Tipo de item não suportado");
+                }
 
                 _context.SaveChanges();
                 return existingItem;
@@ -83,11 +119,11 @@ namespace BibliotecaVirtual.Data.Repository
         {
             try
             {
-                return _context.Itens.ToList();
+                return _context.Items.ToList();
             }
             catch (Exception e)
             {
-                throw new Exception($"Erro ao buscar todos as Bibliotecas: {e.Message}", e);
+                throw new Exception($"Erro ao buscar todos os Itens: {e.Message}", e);
             }
         }
 
@@ -95,18 +131,18 @@ namespace BibliotecaVirtual.Data.Repository
         {
             try
             {
-                var bi = _context.Itens.Find(id);
+                var bi = _context.Items.Find(id);
 
                 if (bi is null)
                 {
-                    throw new ArgumentException("Biblioteca não encontrado");
+                    throw new ArgumentException("item não encontrado");
                 }
 
                 return bi;
             }
             catch (Exception e)
             {
-                throw new Exception($"Erro ao buscar a Biblioteca: {e.Message}", e);
+                throw new Exception($"Erro ao buscar o Item: {e.Message}", e);
             }
         }
 
@@ -114,7 +150,7 @@ namespace BibliotecaVirtual.Data.Repository
         {
             using (var context = new AppDbContext())
             {
-                IQueryable<Item> query = context.Itens;
+                IQueryable<Item> query = context.Items;
 
                 if (tipoPesquisa == 0)
                 {
@@ -133,20 +169,37 @@ namespace BibliotecaVirtual.Data.Repository
         {
             try
             {
-                // Valida o tipo solicitado para garantir que é um dos três esperados
                 if (typeof(T) != typeof(Livro) && typeof(T) != typeof(Revista) && typeof(T) != typeof(ArtigoCientifico))
                 {
                     throw new InvalidOperationException($"Tipo {typeof(T).Name} não suportado. Apenas 'Livro', 'Revista' e 'Artigo' são permitidos.");
                 }
 
-                // Filtra itens pelo tipo específico usando OfType<>
-                return _context.Itens.OfType<T>().Cast<Item>().ToList();
+                return _context.Items.OfType<T>().Cast<Item>().ToList();
             }
             catch (Exception e)
             {
                 throw new Exception($"Erro ao buscar itens do tipo {typeof(T).Name}: {e.Message}", e);
             }
         }
+
+        public List<Item> GetItemByLivro()
+        {
+            return _context.Items.OfType<Livro>().Select(l => (Item)l).ToList();
+
+        }
+
+        public List<Item> GetItemByRevista()
+        {
+            return _context.Items.OfType<Revista>().Select(l => (Item)l).ToList();
+
+        }
+
+        public List<Item> GetItemByArtigo()
+        {
+            return _context.Items.OfType<ArtigoCientifico>().Select(l => (Item)l).ToList();
+
+        }
+
 
     }
 }

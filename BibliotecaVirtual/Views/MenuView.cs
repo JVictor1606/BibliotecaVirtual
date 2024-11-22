@@ -128,5 +128,35 @@ namespace BibliotecaVirtual.Views
                 }
             }
         }
+
+        private void MenuView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("Deseja fechar o aplicativo?", "Sair", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void FiltrarItens(string pesquisa)
+        {
+
+            var bi = _repository.GetAllBibliotecas()
+                                    .Where(i => i.UserId == _user.Id &&
+                                                i.Nome.Contains(pesquisa)).ToList();
+
+
+            PreencherGrid(bi);
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            FiltrarItens(txtPesquisa.Text);
+        }
     }
 }

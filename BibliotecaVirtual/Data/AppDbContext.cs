@@ -18,11 +18,13 @@ namespace BibliotecaVirtual.Data
         }
 
         public DbSet<User> Users { get; set; }
+
         public DbSet<Biblioteca> Bibliotecas { get; set; }
-        public DbSet<Item> Itens { get; set; }
-        public DbSet<Livro> Livros { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Livro> Livro { get; set; }
         public DbSet<Revista> Revistas { get; set; }
         public DbSet<ArtigoCientifico> ArtigoCientificos { get; set; }
+        public DbSet<Emprestimo> Emprestimos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,7 +39,7 @@ namespace BibliotecaVirtual.Data
 
             modelBuilder.Entity<Biblioteca>()
             .HasOne(b => b.User)
-            .WithMany(u => u.bibliotecas)
+            .WithMany(u => u.Bibliotecas)
             .HasForeignKey(b => b.UserId);
 
             modelBuilder.Entity<Item>()
@@ -46,11 +48,22 @@ namespace BibliotecaVirtual.Data
             .HasForeignKey(i => i.BibliotecaId);
 
             modelBuilder.Entity<Item>()
-             .HasDiscriminator<string>("ItemType")
-             .HasValue<Item>("Item")
-             .HasValue<Livro>("Livro")
-             .HasValue<Revista>("Revista")
-             .HasValue<ArtigoCientifico>("ArtigoCientifico");
+             .HasDiscriminator<ItemType>("ItemType")
+             .HasValue<Item>(ItemType.Item)
+             .HasValue<Livro>(ItemType.Livro)
+             .HasValue<Revista>(ItemType.Revista)
+             .HasValue<ArtigoCientifico>(ItemType.ArtigoCientifico);
+
+
+            modelBuilder.Entity<Emprestimo>()
+                .HasOne(e => e.Item)
+                .WithMany(i => i.Emprestimos)
+                .HasForeignKey(e => e.ItemId);
+
+            modelBuilder.Entity<Emprestimo>()
+                .HasOne(e => e.User)
+                .WithMany(u => u.Emprestimos)
+                .HasForeignKey(e => e.UserId);
 
         }
 
