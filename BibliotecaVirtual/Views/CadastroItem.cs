@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace BibliotecaVirtual.Views
 {
@@ -136,12 +137,13 @@ namespace BibliotecaVirtual.Views
                             Autor = txtAutor.Text,
                             Data = DateTime.Now,
                             Disponivel = Disponiblidadebool(),
-                            Tipo= cmbItem.SelectedText,
+                            Tipo= tipos,
                             Edicao = txtEdicao.Text,
                             Volume = txtVolume.Text,
                             Periodicidade = txtPeriodicidade.Text,
                             Editora = txtEditora.Text,
                             BibliotecaId = _biblioteca.Id,
+                            
 
                         };
                         break;
@@ -213,6 +215,34 @@ namespace BibliotecaVirtual.Views
             {
                 e.Handled = true; // Impede a digitação do caractere
             }
+        }
+
+        private void PreencherItem(Item item)
+        {
+            var getItem = _repository.GetById(item.Id);
+
+            if (getItem.Id == _item.Id)
+            {
+                txtTitulo.Text = "Atualize o seu Item";
+
+                txtNome.Text = item.Titulo;
+                txtAutor.Text = item.Autor;
+                txtData.Text = Convert.ToString(item.Data);
+                cmbItem.Text = item.Tipo;
+                cmbDisponibilidade.Text = Convert.ToString(item.Disponivel);
+                txtISBN.Enabled = false;
+                txtGenero.Enabled = false;
+                txtEditora.Enabled = false;
+                txtPeriodicidade.Enabled = false;
+                txtEdicao.Enabled = false;
+                txtVolume.Enabled = false;
+                txtDOI.Enabled = false;
+
+                btnCriarItem.Text = "Atualizar";
+            }
+
+
+
         }
     }
 }

@@ -130,7 +130,7 @@ namespace BibliotecaVirtual.Views
                         MessageBox.Show("Você não pesquisou nenhum Item", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     int tipoPesquisa = cmbItem.SelectedIndex;
-                    List<Item> lista = _repository.Pesquisar(tipoPesquisa, txtPesquisa.Text.Trim());
+                    List<Item> lista = _repository.Pesquisar(tipoPesquisa, txtPesquisa.Text.Trim()).Where(i => i.BibliotecaId == _biblioteca.Id).ToList();
                     PreencherGrid(lista);
                     break;
                     case 1:
@@ -139,11 +139,11 @@ namespace BibliotecaVirtual.Views
                         MessageBox.Show("Você não pesquisou nenhum Item", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     int tipoPesquisa2 = cmbItem.SelectedIndex;
-                    List<Item> lista2 = _repository.Pesquisar(tipoPesquisa2, txtPesquisa.Text.Trim());
+                    List<Item> lista2 = _repository.Pesquisar(tipoPesquisa2, txtPesquisa.Text.Trim()).Where(i => i.BibliotecaId == _biblioteca.Id).ToList();
                     PreencherGrid(lista2);
                     break;
                 case 2:
-                    List<Item> listaLivro = _repository.GetItemByLivro();
+                    List<Item> listaLivro = _repository.GetItemByLivro().Where(i => i.BibliotecaId == _biblioteca.Id).ToList();
                     PreencherGrid(listaLivro);
 
                     if(listaLivro.Count == 0)
@@ -154,7 +154,7 @@ namespace BibliotecaVirtual.Views
                     break;
 
                 case 3:
-                    List<Item> listaRevista = _repository.GetItemByRevista();
+                    List<Item> listaRevista = _repository.GetItemByRevista().Where(i => i.BibliotecaId == _biblioteca.Id).ToList();
                     PreencherGrid(listaRevista);
                     if (listaRevista.Count == 0)
                     {
@@ -163,7 +163,7 @@ namespace BibliotecaVirtual.Views
                     }
                     break;
                 case 4:
-                    List<Item> listaArtigo = _repository.GetItemByArtigo();
+                    List<Item> listaArtigo = _repository.GetItemByArtigo().Where(i => i.BibliotecaId == _biblioteca.Id).ToList();
                     PreencherGrid(listaArtigo);
                     if (listaArtigo.Count == 0)
                     {
@@ -199,9 +199,15 @@ namespace BibliotecaVirtual.Views
 
         private void listViewBiblioteca_DoubleClick(object sender, EventArgs e)
         {
-            
+            if (listViewBiblioteca.SelectedItems.Count > 0)
+            {
+                Item item = (Item)listViewBiblioteca.SelectedItems[0].Tag;
+                CadastroItem tela = new CadastroItem(_biblioteca,item);
+                this.Hide();
+                tela.ShowDialog();
+                this.Show();
+            }
         }
-
 
 
         private void btnDeletar_Click(object sender, EventArgs e)
