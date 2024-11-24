@@ -222,5 +222,20 @@ namespace BibliotecaVirtual.Views
             }
 
         }
+
+        private void btnEmprestar_Click(object sender, EventArgs e)
+        {
+
+            if (listViewBiblioteca.SelectedItems.Count > 0)
+            {
+                
+              Item item = (Item)listViewBiblioteca.SelectedItems[0].Tag;
+              LivroView tela = new LivroView(item);
+              this.Hide();
+              tela.ShowDialog();
+              this.Show();
+               
+            }
+        }
     }
 }

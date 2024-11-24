@@ -238,6 +238,7 @@
             this.btnEmprestar.TabIndex = 21;
             this.btnEmprestar.Text = "Emprestar";
             this.btnEmprestar.UseVisualStyleBackColor = true;
+            this.btnEmprestar.Click += new System.EventHandler(this.btnEmprestar_Click);
             // 
             // MenuBiblioteca
             // 

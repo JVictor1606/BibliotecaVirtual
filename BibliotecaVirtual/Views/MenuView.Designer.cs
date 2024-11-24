@@ -44,6 +44,7 @@
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.cmbBiblioteca = new System.Windows.Forms.ComboBox();
             this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnLivrosEmprestados = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,9 +60,9 @@
             // 
             // btnAddBiblioteca
             // 
-            this.btnAddBiblioteca.Location = new System.Drawing.Point(18, 148);
+            this.btnAddBiblioteca.Location = new System.Drawing.Point(12, 148);
             this.btnAddBiblioteca.Name = "btnAddBiblioteca";
-            this.btnAddBiblioteca.Size = new System.Drawing.Size(75, 23);
+            this.btnAddBiblioteca.Size = new System.Drawing.Size(81, 23);
             this.btnAddBiblioteca.TabIndex = 1;
             this.btnAddBiblioteca.Text = "Adicionar";
             this.btnAddBiblioteca.UseVisualStyleBackColor = true;
@@ -200,11 +201,21 @@
             // 
             this.btnDeletar.Location = new System.Drawing.Point(99, 148);
             this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.Size = new System.Drawing.Size(86, 23);
             this.btnDeletar.TabIndex = 21;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
+            // btnLivrosEmprestados
+            // 
+            this.btnLivrosEmprestados.Location = new System.Drawing.Point(12, 88);
+            this.btnLivrosEmprestados.Name = "btnLivrosEmprestados";
+            this.btnLivrosEmprestados.Size = new System.Drawing.Size(173, 23);
+            this.btnLivrosEmprestados.TabIndex = 22;
+            this.btnLivrosEmprestados.Text = "Ver Emprestados";
+            this.btnLivrosEmprestados.UseVisualStyleBackColor = true;
+            this.btnLivrosEmprestados.Click += new System.EventHandler(this.btnLivrosEmprestados_Click);
             // 
             // MenuView
             // 
@@ -212,6 +223,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(189)))), ((int)(((byte)(142)))));
             this.ClientSize = new System.Drawing.Size(1280, 764);
+            this.Controls.Add(this.btnLivrosEmprestados);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.cmbBiblioteca);
             this.Controls.Add(this.btnPesquisar);
@@ -225,7 +237,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MenuView";
+            this.Text = "Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuView_FormClosing);
             this.Load += new System.EventHandler(this.MenuView_Load);
             this.groupBox1.ResumeLayout(false);
@@ -252,5 +264,6 @@
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.ComboBox cmbBiblioteca;
         private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.Button btnLivrosEmprestados;
     }
 }

@@ -240,6 +240,7 @@
     <Compile Include="Data\AppDbContext.cs" />
     <Compile Include="Data\RepositoryBase.cs" />
     <Compile Include="Data\Repository\BibliotecaRepository.cs" />
+    <Compile Include="Data\Repository\EmprestimoRepository.cs" />
     <Compile Include="Data\Repository\ItemRepository.cs" />
     <Compile Include="Data\Repository\UserRepository.cs" />
     <Compile Include="Form1.cs">
@@ -275,6 +276,12 @@
     </Compile>
     <Compile Include="Views\CadastroUser.Designer.cs">
       <DependentUpon>CadastroUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EsmpretadosView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EsmpretadosView.Designer.cs">
+      <DependentUpon>EsmpretadosView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\LivroView.cs">
       <SubType>Form</SubType>
@@ -314,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CadastroUser.resx">
       <DependentUpon>CadastroUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EsmpretadosView.resx">
+      <DependentUpon>EsmpretadosView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LivroView.resx">
       <DependentUpon>LivroView.cs</DependentUpon>

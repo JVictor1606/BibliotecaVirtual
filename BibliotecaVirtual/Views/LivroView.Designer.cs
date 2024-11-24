@@ -41,14 +41,22 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCriarBiblio = new System.Windows.Forms.Button();
-            this.listViewBiblioteca = new System.Windows.Forms.ListView();
+            this.btnEmprestarItem = new System.Windows.Forms.Button();
+            this.listViewUsuarios = new System.Windows.Forms.ListView();
             this.Id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.txtPesquisaUser = new System.Windows.Forms.TextBox();
             this.btnPesquisa = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblWarningDataEmprestimo = new System.Windows.Forms.Label();
+            this.lblWarningDataDevolucao = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtDataDevolucao = new System.Windows.Forms.MaskedTextBox();
+            this.txtDataEmprestimo = new System.Windows.Forms.MaskedTextBox();
+            this.lblListUser = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -175,42 +183,43 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // btnCriarBiblio
+            // btnEmprestarItem
             // 
-            this.btnCriarBiblio.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCriarBiblio.AutoSize = true;
-            this.btnCriarBiblio.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnCriarBiblio.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnCriarBiblio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCriarBiblio.Location = new System.Drawing.Point(616, 452);
-            this.btnCriarBiblio.Name = "btnCriarBiblio";
-            this.btnCriarBiblio.Size = new System.Drawing.Size(120, 27);
-            this.btnCriarBiblio.TabIndex = 24;
-            this.btnCriarBiblio.Text = "Emprestar";
-            this.btnCriarBiblio.UseVisualStyleBackColor = false;
+            this.btnEmprestarItem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnEmprestarItem.AutoSize = true;
+            this.btnEmprestarItem.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.btnEmprestarItem.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnEmprestarItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmprestarItem.Location = new System.Drawing.Point(696, 369);
+            this.btnEmprestarItem.Name = "btnEmprestarItem";
+            this.btnEmprestarItem.Size = new System.Drawing.Size(120, 27);
+            this.btnEmprestarItem.TabIndex = 24;
+            this.btnEmprestarItem.Text = "Emprestar";
+            this.btnEmprestarItem.UseVisualStyleBackColor = false;
+            this.btnEmprestarItem.Click += new System.EventHandler(this.btnEmprestarItem_Click);
             // 
-            // listViewBiblioteca
+            // listViewUsuarios
             // 
-            this.listViewBiblioteca.Activation = System.Windows.Forms.ItemActivation.TwoClick;
-            this.listViewBiblioteca.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.listViewBiblioteca.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listViewUsuarios.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.listViewUsuarios.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.listViewUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewBiblioteca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(221)))), ((int)(((byte)(200)))));
-            this.listViewBiblioteca.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewBiblioteca.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(221)))), ((int)(((byte)(200)))));
+            this.listViewUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewUsuarios.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.Nome,
             this.email});
-            this.listViewBiblioteca.FullRowSelect = true;
-            this.listViewBiblioteca.HideSelection = false;
-            this.listViewBiblioteca.Location = new System.Drawing.Point(491, 101);
-            this.listViewBiblioteca.MultiSelect = false;
-            this.listViewBiblioteca.Name = "listViewBiblioteca";
-            this.listViewBiblioteca.Size = new System.Drawing.Size(483, 77);
-            this.listViewBiblioteca.TabIndex = 25;
-            this.listViewBiblioteca.UseCompatibleStateImageBehavior = false;
-            this.listViewBiblioteca.View = System.Windows.Forms.View.Details;
+            this.listViewUsuarios.FullRowSelect = true;
+            this.listViewUsuarios.HideSelection = false;
+            this.listViewUsuarios.Location = new System.Drawing.Point(490, 145);
+            this.listViewUsuarios.MultiSelect = false;
+            this.listViewUsuarios.Name = "listViewUsuarios";
+            this.listViewUsuarios.Size = new System.Drawing.Size(483, 77);
+            this.listViewUsuarios.TabIndex = 25;
+            this.listViewUsuarios.UseCompatibleStateImageBehavior = false;
+            this.listViewUsuarios.View = System.Windows.Forms.View.Details;
             // 
             // Id
             // 
@@ -232,7 +241,7 @@
             // 
             this.label2.AllowDrop = true;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(491, 80);
+            this.label2.Location = new System.Drawing.Point(490, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(242, 13);
             this.label2.TabIndex = 26;
@@ -240,19 +249,101 @@
             // 
             // txtPesquisaUser
             // 
-            this.txtPesquisaUser.Location = new System.Drawing.Point(742, 77);
+            this.txtPesquisaUser.Location = new System.Drawing.Point(741, 121);
             this.txtPesquisaUser.Name = "txtPesquisaUser";
             this.txtPesquisaUser.Size = new System.Drawing.Size(116, 20);
             this.txtPesquisaUser.TabIndex = 27;
             // 
             // btnPesquisa
             // 
-            this.btnPesquisa.Location = new System.Drawing.Point(864, 75);
+            this.btnPesquisa.Location = new System.Drawing.Point(863, 119);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(110, 23);
             this.btnPesquisa.TabIndex = 28;
             this.btnPesquisa.Text = "Pesquise";
             this.btnPesquisa.UseVisualStyleBackColor = true;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(487, 262);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 13);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Data de Emprestimo";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(675, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(182, 29);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Emprestar Livro";
+            // 
+            // lblWarningDataEmprestimo
+            // 
+            this.lblWarningDataEmprestimo.AutoSize = true;
+            this.lblWarningDataEmprestimo.ForeColor = System.Drawing.Color.Red;
+            this.lblWarningDataEmprestimo.Location = new System.Drawing.Point(487, 313);
+            this.lblWarningDataEmprestimo.Name = "lblWarningDataEmprestimo";
+            this.lblWarningDataEmprestimo.Size = new System.Drawing.Size(156, 13);
+            this.lblWarningDataEmprestimo.TabIndex = 32;
+            this.lblWarningDataEmprestimo.Text = "Data de Emprestimo Obrigatoria";
+            this.lblWarningDataEmprestimo.Visible = false;
+            // 
+            // lblWarningDataDevolucao
+            // 
+            this.lblWarningDataDevolucao.AutoSize = true;
+            this.lblWarningDataDevolucao.ForeColor = System.Drawing.Color.Red;
+            this.lblWarningDataDevolucao.Location = new System.Drawing.Point(789, 313);
+            this.lblWarningDataDevolucao.Name = "lblWarningDataDevolucao";
+            this.lblWarningDataDevolucao.Size = new System.Drawing.Size(154, 13);
+            this.lblWarningDataDevolucao.TabIndex = 35;
+            this.lblWarningDataDevolucao.Text = "Data de Devolução Obrigatoria";
+            this.lblWarningDataDevolucao.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(789, 262);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 13);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "Data de Devolução";
+            // 
+            // txtDataDevolucao
+            // 
+            this.txtDataDevolucao.BackColor = System.Drawing.Color.White;
+            this.txtDataDevolucao.Location = new System.Drawing.Point(792, 287);
+            this.txtDataDevolucao.Mask = "00/00/0000";
+            this.txtDataDevolucao.Name = "txtDataDevolucao";
+            this.txtDataDevolucao.Size = new System.Drawing.Size(260, 20);
+            this.txtDataDevolucao.TabIndex = 36;
+            this.txtDataDevolucao.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtDataEmprestimo
+            // 
+            this.txtDataEmprestimo.BackColor = System.Drawing.Color.White;
+            this.txtDataEmprestimo.Location = new System.Drawing.Point(490, 287);
+            this.txtDataEmprestimo.Mask = "00/00/0000";
+            this.txtDataEmprestimo.Name = "txtDataEmprestimo";
+            this.txtDataEmprestimo.Size = new System.Drawing.Size(260, 20);
+            this.txtDataEmprestimo.TabIndex = 37;
+            this.txtDataEmprestimo.ValidatingType = typeof(System.DateTime);
+            // 
+            // lblListUser
+            // 
+            this.lblListUser.AutoSize = true;
+            this.lblListUser.ForeColor = System.Drawing.Color.Red;
+            this.lblListUser.Location = new System.Drawing.Point(490, 225);
+            this.lblListUser.Name = "lblListUser";
+            this.lblListUser.Size = new System.Drawing.Size(184, 13);
+            this.lblListUser.TabIndex = 38;
+            this.lblListUser.Text = "É obrigatorio a escolha de um usuario";
+            this.lblListUser.Visible = false;
             // 
             // LivroView
             // 
@@ -260,15 +351,23 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(189)))), ((int)(((byte)(142)))));
             this.ClientSize = new System.Drawing.Size(1064, 664);
+            this.Controls.Add(this.lblListUser);
+            this.Controls.Add(this.txtDataEmprestimo);
+            this.Controls.Add(this.txtDataDevolucao);
+            this.Controls.Add(this.lblWarningDataDevolucao);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblWarningDataEmprestimo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnPesquisa);
             this.Controls.Add(this.txtPesquisaUser);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listViewBiblioteca);
-            this.Controls.Add(this.btnCriarBiblio);
+            this.Controls.Add(this.listViewUsuarios);
+            this.Controls.Add(this.btnEmprestarItem);
             this.Controls.Add(this.groupBox1);
             this.Name = "LivroView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Livro";
+            this.Text = "Emprestar Item";
             this.Load += new System.EventHandler(this.LivroView_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -292,13 +391,21 @@
         private System.Windows.Forms.Label lblDisponibilidade;
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.Label lblAutor;
-        private System.Windows.Forms.Button btnCriarBiblio;
-        private System.Windows.Forms.ListView listViewBiblioteca;
+        private System.Windows.Forms.Button btnEmprestarItem;
+        private System.Windows.Forms.ListView listViewUsuarios;
         private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader email;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPesquisaUser;
         private System.Windows.Forms.Button btnPesquisa;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblWarningDataEmprestimo;
+        private System.Windows.Forms.Label lblWarningDataDevolucao;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.MaskedTextBox txtDataDevolucao;
+        private System.Windows.Forms.MaskedTextBox txtDataEmprestimo;
+        private System.Windows.Forms.Label lblListUser;
     }
 }

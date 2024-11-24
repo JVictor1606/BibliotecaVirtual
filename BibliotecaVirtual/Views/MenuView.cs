@@ -176,5 +176,13 @@ namespace BibliotecaVirtual.Views
             }
 
         }
+
+        private void btnLivrosEmprestados_Click(object sender, EventArgs e)
+        {
+            EsmpretadosView tela = new EsmpretadosView(_user);
+            this.Hide();
+            tela.ShowDialog();
+            this.Show();
+        }
     }
 }

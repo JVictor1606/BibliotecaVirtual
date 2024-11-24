@@ -164,24 +164,6 @@ namespace BibliotecaVirtual.Data.Repository
                 return query.ToList();
             }
         }
-
-        public List<Item> GetItemsByType<T>() where T : Item
-        {
-            try
-            {
-                if (typeof(T) != typeof(Livro) && typeof(T) != typeof(Revista) && typeof(T) != typeof(ArtigoCientifico))
-                {
-                    throw new InvalidOperationException($"Tipo {typeof(T).Name} não suportado. Apenas 'Livro', 'Revista' e 'Artigo' são permitidos.");
-                }
-
-                return _context.Items.OfType<T>().Cast<Item>().ToList();
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"Erro ao buscar itens do tipo {typeof(T).Name}: {e.Message}", e);
-            }
-        }
-
         public List<Item> GetItemByLivro()
         {
             return _context.Items.OfType<Livro>().Select(l => (Item)l).ToList();
@@ -199,6 +181,7 @@ namespace BibliotecaVirtual.Data.Repository
             return _context.Items.OfType<ArtigoCientifico>().Select(l => (Item)l).ToList();
 
         }
+
 
 
     }
