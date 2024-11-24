@@ -276,6 +276,12 @@
     <Compile Include="Views\CadastroUser.Designer.cs">
       <DependentUpon>CadastroUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\LivroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LivroView.Designer.cs">
+      <DependentUpon>LivroView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MenuBiblioteca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CadastroUser.resx">
       <DependentUpon>CadastroUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LivroView.resx">
+      <DependentUpon>LivroView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MenuBiblioteca.resx">
       <DependentUpon>MenuBiblioteca.cs</DependentUpon>

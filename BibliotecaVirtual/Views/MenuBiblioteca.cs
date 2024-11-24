@@ -196,5 +196,31 @@ namespace BibliotecaVirtual.Views
         {
             FiltrarItens(txtPesquisa.Text);
         }
+
+        private void listViewBiblioteca_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (listViewBiblioteca.SelectedItems.Count > 0)
+            {
+                DialogResult yes = MessageBox.Show("Você tem certeza que deseja apagar este item?", "Salvar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (DialogResult.Yes == yes)
+                {
+                    Item item = (Item)listViewBiblioteca.SelectedItems[0].Tag;
+
+                    _repository.Delete(item.Id);
+                    MessageBox.Show($" Seu item foi deletado com sucesso", "Delete Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    List<Item> lista = _repository.GetAllItens();
+                    PreencherGrid(lista);
+                }
+            }
+
+        }
     }
 }

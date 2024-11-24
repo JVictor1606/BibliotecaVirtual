@@ -43,6 +43,7 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.cmbBiblioteca = new System.Windows.Forms.ComboBox();
+            this.btnDeletar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,12 +196,23 @@
             this.cmbBiblioteca.Size = new System.Drawing.Size(121, 21);
             this.cmbBiblioteca.TabIndex = 15;
             // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Location = new System.Drawing.Point(99, 148);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.TabIndex = 21;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
             // MenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(189)))), ((int)(((byte)(142)))));
             this.ClientSize = new System.Drawing.Size(1280, 764);
+            this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.cmbBiblioteca);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.txtPesquisa);
@@ -239,5 +251,6 @@
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.ComboBox cmbBiblioteca;
+        private System.Windows.Forms.Button btnDeletar;
     }
 }

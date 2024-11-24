@@ -16,6 +16,7 @@ namespace BibliotecaVirtual.Views
     public partial class MenuView : Form
     {
         private User _user;
+        private Biblioteca _biblioteca;
         private readonly BibliotecaRepository _repository;
         public MenuView(User user)
         {
@@ -117,13 +118,11 @@ namespace BibliotecaVirtual.Views
 
                 if (biblioteca != null)
                 {
-                    // Abrir a nova página MenuBiblioteca
                     MenuBiblioteca menuBiblioteca = new MenuBiblioteca(_user, biblioteca);
                     this.Hide();
                     menuBiblioteca.ShowDialog();
                     this.Show();
 
-                    // Atualizar a lista após fechar a página
                     PreencherGrid();
                 }
             }
@@ -157,6 +156,25 @@ namespace BibliotecaVirtual.Views
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             FiltrarItens(txtPesquisa.Text);
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (listViewBiblioteca.SelectedItems.Count > 0)
+            {
+                DialogResult yes = MessageBox.Show("Você tem certeza que deseja apagar esta biblioteca?", "Deletar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (DialogResult.Yes == yes)
+                {
+                    Biblioteca biblioteca = (Biblioteca)listViewBiblioteca.SelectedItems[0].Tag;
+                    _repository.Delete(biblioteca.Id);
+                    MessageBox.Show($" Sua biblioteca foi deletada com sucesso", "Delete Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    List<Biblioteca> lista = _repository.GetAllBibliotecas();
+                    PreencherGrid(lista);
+                }
+            }
+
         }
     }
 }

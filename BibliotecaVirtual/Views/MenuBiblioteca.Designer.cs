@@ -45,6 +45,8 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnAddItem = new System.Windows.Forms.Button();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnEmprestar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,13 +122,14 @@
             this.Tipo});
             this.listViewBiblioteca.FullRowSelect = true;
             this.listViewBiblioteca.HideSelection = false;
-            this.listViewBiblioteca.Location = new System.Drawing.Point(12, 251);
+            this.listViewBiblioteca.Location = new System.Drawing.Point(12, 254);
             this.listViewBiblioteca.MultiSelect = false;
             this.listViewBiblioteca.Name = "listViewBiblioteca";
             this.listViewBiblioteca.Size = new System.Drawing.Size(1342, 528);
             this.listViewBiblioteca.TabIndex = 8;
             this.listViewBiblioteca.UseCompatibleStateImageBehavior = false;
             this.listViewBiblioteca.View = System.Windows.Forms.View.Details;
+            this.listViewBiblioteca.DoubleClick += new System.EventHandler(this.listViewBiblioteca_DoubleClick);
             // 
             // Id
             // 
@@ -217,12 +220,33 @@
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Location = new System.Drawing.Point(99, 225);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.TabIndex = 20;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
+            // btnEmprestar
+            // 
+            this.btnEmprestar.Location = new System.Drawing.Point(180, 224);
+            this.btnEmprestar.Name = "btnEmprestar";
+            this.btnEmprestar.Size = new System.Drawing.Size(75, 23);
+            this.btnEmprestar.TabIndex = 21;
+            this.btnEmprestar.Text = "Emprestar";
+            this.btnEmprestar.UseVisualStyleBackColor = true;
+            // 
             // MenuBiblioteca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(189)))), ((int)(((byte)(142)))));
             this.ClientSize = new System.Drawing.Size(1366, 794);
+            this.Controls.Add(this.btnEmprestar);
+            this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.txtPesquisa);
@@ -263,5 +287,7 @@
         private System.Windows.Forms.ColumnHeader Data;
         private System.Windows.Forms.ColumnHeader Disponibilidade;
         private System.Windows.Forms.ColumnHeader Tipo;
+        private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.Button btnEmprestar;
     }
 }
