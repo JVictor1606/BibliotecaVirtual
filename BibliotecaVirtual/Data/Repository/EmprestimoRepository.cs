@@ -1,4 +1,5 @@
 ﻿using BibliotecaVirtual.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace BibliotecaVirtual.Data.Repository
 
         public List<Emprestimo> GetAllEmprestimos()
         {
-            return _context.Emprestimos.ToList();
+            return _context.Emprestimos.Include(e => e.Item).ToList();
         }
 
         public List<User> PesquiseUser(string pesquisa)
